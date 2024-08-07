@@ -1,6 +1,6 @@
 {{ define "main" }}
    {{ partial "about.html" .}}
-   {{ $projects := slice "creations" "contributions" }}
+   {{ $projects := slice "creations" "contributions" "projects" }}
    {{ $sections := slice "publications" "blog" }}
    {{ $site := .Site }}
    {{ range .Site.Params.sections }}
@@ -16,7 +16,7 @@
             {{ partial "sectionSummary" . }}
          {{ end }}
       {{ else }}
-         {{ partial (printf "portfolio/%s" . ) $.Site }}
+         {{ partial (printf "portfolio/%s" . ) $site }}
       {{ end }}
    {{ end }}
 {{ end }}
